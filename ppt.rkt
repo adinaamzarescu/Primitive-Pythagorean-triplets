@@ -26,7 +26,6 @@
 ;; (15, 8,17) = T1·(3,4,5)
 ;; (21,20,29) = T2·(3,4,5)
 ;; ( 5,12,13) = T3·(3,4,5) etc.
-
 ;;
 ;; În această reprezentare, TPP sunt indexate "de sus în jos",
 ;; respectiv "de la stânga la dreapta", rezultând ordinea:
@@ -38,26 +37,35 @@
 (define T3 '((1 -2 2) (2 -1 2) (2 -2 3)))
 
 
-; TODO
-; Implementați o funcție care calculează produsul scalar
-; a doi vectori X și Y (reprezentați ca liste).
-; Se garantează că X și Y au aceeași lungime.
 ; Ex: (-1,2,2)·(3,4,5) = -3 + 8 + 10 = 15
-; Utilizați recursivitate pe stivă.
+; This function will go as long as the 2 lists
+; are not empty.
+; Then the first 2 elements of each list will be multiplied.
+; The dot-product function will be then called with the
+; rest of the 2 lists, without the first 2 elements. Then
+; all the products will be summed.
 (define (dot-product X Y)
-  'your-code-here)
+  (cond
+    [(zero? (length X)) 0]
+    [else (+ (* (car X) (car Y)) (dot-product (cdr X) (cdr Y)))]
+    )
+  )
 
 
-; TODO
-; Implementați o funcție care calculează produsul dintre
-; o matrice M și un vector V (puneți V "pe verticală").
-; Se garantează că M și V au dimensiuni compatibile.
 ; Ex: |-1 2 2| |3|   |15|
 ;     |-2 1 2|·|4| = | 8|
 ;     |-2 2 3| |5|   |17|
-; Utilizați recursivitate pe coadă.
+; For this function I used a helper function that stores
+; the result and reverses the matrix after it was multiplied.
+; For each line of M I used dot-product to multipy its elements
+; by the elements of V.
+(define (multiply-helper M V rez)
+  (if (null? M)
+      (reverse rez)
+      (multiply-helper (cdr M) V (cons (dot-product (car M) V) rez))))
+
 (define (multiply M V)
-  'your-code-here)
+  (multiply-helper M V '()))
 
 
 ; TODO
@@ -73,7 +81,18 @@
 ; pe care se află n, sau a indexului minim/maxim de pe 
 ; nivelul respectiv, etc.)
 (define (get-transformations n)
-  'your-code-here)
+  (if (= n 1)
+      '()
+      (append (get-transformations
+              (cond
+                [(= (modulo n 3) 1) (quotient (- n 1) 3)]
+                [(= (modulo n 3) 2) (quotient (+ n 1) 3)]
+                [else (quotient n 3)]))
+              (list
+               (cond
+                      [(= (modulo n 3) 1) 3]
+                      [(= (modulo n 3) 2) 1]
+                      [else 2])))))
 
 
 ; TODO
@@ -83,11 +102,18 @@
 ; în urma aplicării transformărilor din Ts asupra ppt.
 ; Utilizați recursivitate pe coadă.
 (define (apply-matrix-transformations Ts ppt)
-  'your-code-here)
+  (if (null? Ts)
+      ppt
+      (apply-matrix-transformations (cdr Ts) (multiply
+                                              (cond
+                                                [(= (car Ts) 1) T1]
+                                                [(= (car Ts) 2) T2]
+                                                [else (= (car Ts) 3) T3])
+                                              ppt))))
 
 
 ; TODO
 ; Implementați o funcție care calculează al n-lea TPP
 ; din arbore, folosind funcțiile anterioare.
 (define (get-nth-ppt-from-matrix-transformations n)
-  'your-code-here)
+  (apply-matrix-transformations (get-transformations n) (list 3 4 5)))
