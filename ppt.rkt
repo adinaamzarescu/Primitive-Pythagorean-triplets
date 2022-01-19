@@ -37,6 +37,7 @@
 (define T3 '((1 -2 2) (2 -1 2) (2 -2 3)))
 
 
+
 ; Ex: (-1,2,2)·(3,4,5) = -3 + 8 + 10 = 15
 ; This function will go as long as the 2 lists
 ; are not empty.
