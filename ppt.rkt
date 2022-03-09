@@ -26,6 +26,7 @@
 ;; (15, 8,17) = T1·(3,4,5)
 ;; (21,20,29) = T2·(3,4,5)
 ;; ( 5,12,13) = T3·(3,4,5) etc.
+
 ;;
 ;; În această reprezentare, TPP sunt indexate "de sus în jos",
 ;; respectiv "de la stânga la dreapta", rezultând ordinea:
