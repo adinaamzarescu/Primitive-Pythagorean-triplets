@@ -69,39 +69,32 @@
   (multiply-helper M V '()))
 
 
-; TODO
-; Implementați o funcție care primește un număr n și
-; întoarce o listă numerică (unde elementele au valoarea
-; 1, 2 sau 3), reprezentând secvența de transformări prin
-; care se obține, plecând de la (3,4,5), al n-lea TPP
-; din arbore.
-; Ex: (get-transformations 8) întoarce '(2 1), adică
-; al 8-lea TPP din arbore se obține din T1·T2·(3,4,5).
-; Sunteți încurajați să folosiți funcții ajutătoare
-; (de exemplu pentru determinarea nivelului din arbore 
-; pe care se află n, sau a indexului minim/maxim de pe 
-; nivelul respectiv, etc.)
+
+; For each number, since the tree is separated in 3
+; branches (for each level), the first step is to find
+; the reminder of n % 3.
+; For every number that it divided by 3, the transformation
+; is in the middle, so the second.
+; If the reminder is 1, then it is the 3rd transformation.
+; If the reminder is 2 then it is the first transformation.
 (define (get-transformations n)
   (if (= n 1)
       '()
       (append (get-transformations
-              (cond
-                [(= (modulo n 3) 1) (quotient (- n 1) 3)]
-                [(= (modulo n 3) 2) (quotient (+ n 1) 3)]
-                [else (quotient n 3)]))
+               (cond
+                 [(= (modulo n 3) 1) (quotient (- n 1) 3)]
+                 [(= (modulo n 3) 2) (quotient (+ n 1) 3)]
+                 [else (quotient n 3)]))
               (list
                (cond
-                      [(= (modulo n 3) 1) 3]
-                      [(= (modulo n 3) 2) 1]
-                      [else 2])))))
+                 [(= (modulo n 3) 1) 3]
+                 [(= (modulo n 3) 2) 1]
+                 [else 2])))))
 
 
-; TODO
-; Implementați o funcție care primește o listă Ts de 
-; tipul celei întoarsă de get-transformations, respectiv 
-; un triplet de start ppt și întoarce tripletul rezultat
-; în urma aplicării transformărilor din Ts asupra ppt.
-; Utilizați recursivitate pe coadă.
+; For every element of Ts I multiply the ppt by
+; the matrix that is associated to that element.
+
 (define (apply-matrix-transformations Ts ppt)
   (if (null? Ts)
       ppt
@@ -113,8 +106,6 @@
                                               ppt))))
 
 
-; TODO
-; Implementați o funcție care calculează al n-lea TPP
-; din arbore, folosind funcțiile anterioare.
+; Firstly I apply the tranformations and then I select the n-th one
 (define (get-nth-ppt-from-matrix-transformations n)
-  (apply-matrix-transformations (get-transformations n) (list 3 4 5)))
+  (apply-matrix-transformations (get-transformations n) '(3 4 5)))
