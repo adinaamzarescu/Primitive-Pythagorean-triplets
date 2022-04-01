@@ -4,10 +4,8 @@
 Racket project for the Programming Paradigms course. 
 
 
+The first phase:
 
+The second phase:
 
-
-
-
-
-aaa
+The third phase:
