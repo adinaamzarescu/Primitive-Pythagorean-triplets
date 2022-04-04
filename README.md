@@ -5,8 +5,15 @@ Racket project for the Programming Paradigms course.
 
 
 The first phase:
-
+   Writing simple programms. Working with lists
+   
+   Main functions:
+   * car
+   * cdr
+   * list
+   
 The second phase:
+
 
 The third phase:
 
