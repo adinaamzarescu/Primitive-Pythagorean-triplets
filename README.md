@@ -5,7 +5,7 @@ Racket project for the Programming Paradigms course.
 
 
 The first phase:
-   Writing simple programms. Working with lists
+   Writing simple programms. Working with lists.
    
    Main functions:
    * car
