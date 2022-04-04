@@ -13,7 +13,10 @@ The first phase:
    * list
    
 The second phase:
-
+   Using functions like:
+   * map
+   * apply
+   * foldr / foldl
 
 The third phase:
 
