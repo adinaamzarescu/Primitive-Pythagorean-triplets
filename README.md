@@ -18,7 +18,7 @@ The second phase:
    * map
    * apply
    * foldr / foldl
-
+___________________________________________________________
 The third phase:
 
 First:
