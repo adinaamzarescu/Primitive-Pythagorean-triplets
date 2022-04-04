@@ -3,7 +3,7 @@
 
 Racket project for the Programming Paradigms course. 
 
-
+___________________________________________________________
 The first phase:
    Writing simple programms. Working with lists.
    
