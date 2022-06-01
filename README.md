@@ -53,9 +53,9 @@ ___________________________________________________________
 
 Resources:
 
-1. Pythagorean Triples and Cryptographic Coding [https://arxiv.org/ftp/arxiv/papers/1004/1004.3770.pdf]
-2. Data Encryption and Decryption Using New
-Pythagorean Triple Algorithm [http://www.iaeng.org/publication/WCE2014/WCE2014_pp516-519.pdf]
+1. [Pythagorean Triples and Cryptographic Coding] (https://arxiv.org/ftp/arxiv/papers/1004/1004.3770.pdf)
+2. [Data Encryption and Decryption Using New
+Pythagorean Triple Algorithm] (http://www.iaeng.org/publication/WCE2014/WCE2014_pp516-519.pdf)
 
 ___________________________________________________________
 
