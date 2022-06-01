@@ -6,7 +6,6 @@
 ;;    (g, e, f, h) = (g, e, g + e, g + 2e)
 ;;
 ;;    a = gh,   b = 2ef,   c = e^2 + f^2
-;; și putem demonstra că (a,b,c) este un triplet pitagoreic.
 ;;
 ;; Q1(g,e,f,h) = (h,e,h+e,h+2e)
 ;; Q2(g,e,f,h) = (h,f,h+f,h+2f) 
