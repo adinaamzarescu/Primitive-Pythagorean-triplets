@@ -2,13 +2,7 @@
 
 (provide (all-defined-out))
 
-;; Un triplet pitagoreic primitiv (TPP) este format din 
-;; 3 numere naturale nenule a, b, c cu proprietățile:
 ;;    a^2 + b^2 = c^2
-;;    a, b, c prime între ele
-;;
-;; TPP pot fi generate sub formă de arbore (infinit) cu
-;; rădăcina (3,4,5), pe baza a 3 transformări matriciale:
 ;;
 ;;      |-1 2 2|        |1 2 2|        |1 -2 2|
 ;; T1 = |-2 1 2|   T2 = |2 1 2|   T3 = |2 -1 2|
@@ -22,21 +16,13 @@
 ;;      |      |      ||      |      ||      |      |
 ;; (35,12,37) ..........................................
 ;;
-;; unde:
 ;; (15, 8,17) = T1·(3,4,5)
 ;; (21,20,29) = T2·(3,4,5)
 ;; ( 5,12,13) = T3·(3,4,5) etc.
-;;
-;; În această reprezentare, TPP sunt indexate "de sus în jos",
-;; respectiv "de la stânga la dreapta", rezultând ordinea:
-;; (3,4,5) (15,8,17) (21,20,29) (5,12,13) (35,12,37) ... etc.
 
-;; Reprezentăm matricile T1, T2, T3 ca liste de liste:
 (define T1 '((-1 2 2) (-2 1 2) (-2 2 3)))
 (define T2 '( (1 2 2)  (2 1 2)  (2 2 3)))
 (define T3 '((1 -2 2) (2 -1 2) (2 -2 3)))
-
-
 
 ; Ex: (-1,2,2)·(3,4,5) = -3 + 8 + 10 = 15
 ; This function will go as long as the 2 lists
@@ -45,6 +31,7 @@
 ; The dot-product function will be then called with the
 ; rest of the 2 lists, without the first 2 elements. Then
 ; all the products will be summed.
+
 (define (dot-product X Y)
   (cond
     [(zero? (length X)) 0]
@@ -60,6 +47,7 @@
 ; the result and reverses the matrix after it was multiplied.
 ; For each line of M I used dot-product to multipy its elements
 ; by the elements of V.
+
 (define (multiply-helper M V rez)
   (if (null? M)
       (reverse rez)
@@ -77,6 +65,7 @@
 ; is in the middle, so the second.
 ; If the reminder is 1, then it is the 3rd transformation.
 ; If the reminder is 2 then it is the first transformation.
+
 (define (get-transformations n)
   (if (= n 1)
       '()
