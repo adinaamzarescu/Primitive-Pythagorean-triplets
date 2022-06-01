@@ -9,6 +9,8 @@ ___________________________________________________________
 
 ## The first stage:
 
+   File: ppt.rkt
+
    Writing simple programms. Working with lists and
    recursive functions on the stack.
    
@@ -19,6 +21,8 @@ ___________________________________________________________
 ___________________________________________________________
 
 ## The second stage:
+
+   File: ppt2.rkt
 
    The main focus in on curry and uncurry functions and 
    the abstraction of functions with similar implementations.
@@ -39,6 +43,8 @@ ___________________________________________________________
 ___________________________________________________________
 
 ## Last stage:
+
+   File: ppt3.rkt
 
    In the final stage the focus is on how we get an entire 
    sequence ordered by TPP, where the order depends on the 
